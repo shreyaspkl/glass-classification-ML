@@ -1,0 +1,248 @@
+Date=>     02-09
+Question 1) 
+
+
+	5.	Suppose age is a vector containing ages of 10 persons as 22, 27, 31, 41, 30, 25, 19, 20, 23, 35
+i.	Access age of fourth person--
+ii.	Create a vector age30 with age of person > 30   --
+iii.	Access age of last 3 person -- 
+iv.	Find number of elements in vector age---
+v.	Access ages of persons except 5th and 7th –
+vi.	Create a vector age2 with age of persons between 20 and 25---
+
+
+
+Question 2)
+
+
+   1.	Create a vector of numbers 1, 4, 7, 10, 13… 37 by using seq() function.---
+2.	Create a vector of numbers 5 repeated 10 times by using rep() function.---
+3.	Suppose that x and y are two vector containing elements 1, 5, 2 and 3, 7, 9  respectively
+i.	Augment x by adding y to the left ---
+ii.	Augment y by adding elements 4, 3, 2 at end
+iii.	Print the maximum value of Y and minimum value of x.-- 
+4.	Create a vector x with elements 1, 5, 2, 3, 7, 6, 8 and create vectors y, z, w from x using
+y = x2, w=1/x   z=log10x
+
+
+Question 3)
+
+
+  1.	Create a list named ls. The list ls contains following 6 vectors with their values as follows :
+Rollno- 1:4
+First name- Ravi,Om,Ajay,Shiv
+Last name-Dev,Gandhi,Pande,Rao
+Subject-AE,DS,ML,OS
+Marks-35,40,38,02
+Result –P,P,P,F.  
+Task To be performed:
+1.	Print the list ls.
+2.	Print all the independent element of list ls.
+3.	Find the class of element of the list.
+4.	What will be the output of the following commands:
+What will be the output  for
+a)	Print(ls[[2]][1])
+b)	 print(ls[[4]][4])
+c)	print(ls[5])
+5.	It was found that the marks of Ajay were entered wrongly. The correct marks should be 45. Replace the marks of Ajay without disturbing the other elements or without loading the complete list again.
+6.	Change the subject name of OS to OE. Modify the required element only.
+7.	It was decided that the data base should also have native place information. Ravi stays at Pune, Ajay at Mumbai, Shiv at Nashik and Om at Nagpur. Please add this information also in the list.
+8.	Add one more student information names Julie Gommes. The marks obtained by Julie in subject DS is 30 and the result is P. Her native place is Hyderabad.
+
+
+
+Question 4)
+
+
+1. Create the list x which contain numeric vector n(2,3,5), a character vector s(“aa”,”bb”,”cc”,”dd) , and logical vector b(T,F,T,F), and numeric value 3. Perform the following task:
+  1.From the list print s vector values by list slicing.
+2.From the list find s vector values, and numeric value 3, with the help of    index vector by list slicing 
+3. From the list find s vector values by member access 
+4. Modify s vector value replacing “aa” by “tt” and again find s
+
+
+
+
+Quesstion 5)    1) display highest score of tendulkar
+	 	2) display the name and average of the player who is having maximum highest score
+	  	3) display the name , matches, innings and average of the players havinng highest score above 250
+	 	4) display the row no. of the data for which the highest score is equal or greater that 270
+ 	  	5) modify tendulkar's no. of matches to 201
+
+
+Questiom 6) HOMEWORK FOR lab
+		Case Study 1.  Pollutant Data
+
+	1.	What is the mean of “Temp” when “Month” is equal to 6?
+	2.	How many observations are there in the given data?
+	3.	Print last two rows of the data.
+	4.	What is the value of Ozone in 47th row?
+	5.	How many values are missing in Ozone column?
+	6.	What is the mean of Ozone column excluding missing values?
+	7.	Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90.   What is the mean of Solar.R in this subset?
+	8.	What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
+
+
+Ans=>    
+m<-mean(df[c(df$Month==6),"Temp"])
+> m
+[1] 79.1
+> nrow(df)
+[1] 153
+> 
+> df[c(k-1,k),c(1:6)]
+    Ozone Solar.R Wind Temp Month Day
+152    18     131  8.0   76     9  29
+153    20     223 11.5   68     9  30
+> df[47,"Ozone"]
+[1] 21
+> sum(is.na(df$Ozone))
+[1] 37
+> mean(df$Ozone,na.rm = T)
+[1] 42.12931
+> dfm<-df[c(which(df$Ozone>31 & df$Temp>90)),c(1:6)]
+> dfm
+    Ozone Solar.R Wind Temp Month Day
+69     97     267  6.3   92     7   8
+70     97     272  5.7   92     7   9
+120    76     203  9.7   97     8  28
+121   118     225  2.3   94     8  29
+122    84     237  6.3   96     8  30
+123    85     188  6.3   94     8  31
+124    96     167  6.9   91     9   1
+125    78     197  5.1   92     9   2
+126    73     183  2.8   93     9   3
+127    91     189  4.6   93     9   4
+> mean(dfm$Solar.R)
+[1] 212.8
+> max(dfo$Ozone,na.rm = T)
+[1] 115
+
+
+
+
+Case Study 2: Hair Color Data
+	1.	How many people have brown eye color?
+	2.	How many people have Blonde hair?
+	3.	How many Brown haired people have Black eyes?
+	4.	What is the percentage of people with Green eyes?
+	5.	What percentage of people have red hair and Blue eyes?
+
+Ans=> 
+> setwd("D:/R_DS_LAB/Data Set for data visualization lab")
+> df=read.csv("hair_eye_color_csv.csv",header=T)
+[1] df
+>length(which(df$Eye.Color=="Brown"))
+[1] 10
+> length(which(df$Hair.Color=="Blonde"))
+[1] 6
+> length(which(df$Hair.Color=="Brown" & df$Eye.Color=="Black"))
+[1] 2
+> length(which(df$Eye.Color=="Green"))/nrow(df) *100
+[1] 10
+> length(which(df$Hair.Color=="Red" & df$Eye.Color=="Blue"))/nrow(df) *100
+[1] 5
+
+Case Study 3: Germination Data Set
+
+
+	1.	What is the average number of seeds germinated for the uncovered boxes with level of watering equal to 4?
+mean(df$germinated[df$Box=="Uncovered" & df$water_amt=="4"])
+	2.	What is the median value for the data covered boxes?
+median(df$germinated[df$Box=='Covered'])
+	3.	Establish conclusions on the basis of available data:
+	    a. Association of levels of watering with the number of germinating seeds in case of covered boxes as well as uncovered boxes.
+    	    b. Association of number of germinating seeds with the fact that the boxes were covered or uncovered
+Case Study 4: Iris Data Set 
+	Plot the box plots for the iris data set.
+> boxplot(f1$Sepal.Length~f1$Species,xlab="species",ylab="sepal length",col=c("red","green","blue"),main="box plot")
+Case Study 5” Iris Data Set
+	Plot the scatter plot for the iris data set.
+
+> plot(f1$Sepal.Length,xlab="x-axis",ylab="y axis",col=c("red","blue","green"),main="scatter plot")
+
+Que) For practise on lab:
+Atheletes dataset
+		Consider the atheletes dataset
+1.	What is the minimum weight of female atheletes from germany?
+2.	Calculate average height of male athelete from USA and compare it with average height of male athlete from china.
+3.	Identify tallest athlete from entire data set.
+4.	Identify the heaviest athlete from entire dataset.
+5.	Calculate the average height of all male athletes.
+6.	What is the difference in average weight of male and female athlete?
+7.	How many countries are participating?
+8.	How many athletes have name as Johansson?
+9.	What is the number of athletes with height greater than 190cm?
+10.	How many female athletes have weight greater than 60Kg.
+
+
+
+
+que) very important
+
+Laboratory Experiment on Binomial and Normal Distribution
+Data Source: Travelled abroad data of 150 Records.
+Activities: 
+1.	Find out the % of Indians in the sample who have travelled abroad using the data source.
+2.	Treating this value as ‘p’, calculate the following probabilities –
+a.	What is the probability that in a randomly chosen sample of 10 persons, no one has travelled abroad.   p=x, p(k=0)=?, n=10
+b.	What is the probability that in a randomly chosen sample of 10 persons, exactly one has travelled abroad.
+c.	What is the probability that in a randomly chosen sample of 10 persons, exactly two persons have travelled abroad.
+d.	What is the probability that in a randomly chosen sample of 10 persons, exactly three persons have travelled abroad.
+e.	What is the probability that in a randomly chosen sample of 10 persons, exactly four persons have travelled abroad.
+f.	What is the probability that in a randomly chosen sample of 10 persons, exactly five persons have travelled abroad.
+g.	What is the probability that in a randomly chosen sample of 10 persons, exactly six persons have travelled abroad.
+h.	What is the probability that in a randomly chosen sample of 10 persons, exactly seven persons have travelled abroad.
+i.	What is the probability that in a randomly chosen sample of 10 persons, exactly eight persons have travelled abroad.
+j.	What is the probability that in a randomly chosen sample of 10 persons, all 10 persons have travelled abroad. 
+3.	Plot the probability values as a Table / Bar graph/plot and interpret
+4.	What is the probability that in the randomly chosen sample of 100 persons at least 59 have travelled abroad?  
+Hint: Expected to perform Normal approximation for the binary distribution. 
+
+
+Ans:>  
+setwd("D:/R_DS_LAB/Data Set for data visualization lab")
+d=read.csv("travelled_abroad.csv")
+d
+a=sum(d$Travelledabroad=="Y")
+p=a/nrow(d)
+p
+dbinom(0:10,10,p)
+plot(0:10,dbinom(0:10,10,p),type = "l")
+sum(dbinom(59:100,100,p))
+plot(0:100,dbinom(0:100,100,p),type = "l")
+mean=100*p
+q=1-p
+std=sqrt(100*p*q)
+pnorm(59,mean,std,lower.tail = F)
+
+
+Lab 07/10
+
+que) 	 Suppose the manufacturer claims that the mean lifetime of a ball bearing is 10000hours.
+	 The auditing team stated that the mean lifetime is less than what is claimed. On the basis of
+	 a randomly chosen sample of 50 ball bearings as given in the dataset, at 0.05 significance level, 
+	 can we reject the claim of the manufacturer? What will be your interpretation if the significance level is made as 0.01?
+
+
+
+
+GGPLOT
+
+1.create a object p for ggplot
+2.Add a scatter plot with x axis as populationas 10^6 and y axis as
+3.Add label from abb coloum
+4.increase the size of dot, increase the size of label and move the label
+5 Add the gobal aesthatic mapping
+l6.change the x and yaxis scale and adjust the nudge
+7.add x and yaxis label and title to the plot
+8.add colours to be associated with the grographical regions
+
+
+Lab 25_11
+
+
+
+
+
+
